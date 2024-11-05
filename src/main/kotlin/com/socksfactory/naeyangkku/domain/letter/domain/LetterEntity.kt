@@ -18,7 +18,7 @@ class LetterEntity (
     @Column(nullable = false)
     val content: String,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     val ownerId: UserEntity? = null
 ) {
