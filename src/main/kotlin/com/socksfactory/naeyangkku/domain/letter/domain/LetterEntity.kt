@@ -5,11 +5,12 @@ import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 @Entity
+@Table(name = "letter")
 @EntityListeners(AuditingEntityListener::class)
 class LetterEntity (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    var id: Long? = null,
 
     @Column(nullable = false)
     val nickname: String,
