@@ -15,7 +15,7 @@ class LetterController (
     fun sendLetter(
         @RequestBody createLetterRequest: CreateLetterRequest,
     ): BaseResponse<Unit> {
-        letterService.sendLetter(createLetterRequest = createLetterRequest)
+        letterService.sendLetter(createLetterRequest)
         return BaseResponse(
             message = "편지 전송 성공"
         )
