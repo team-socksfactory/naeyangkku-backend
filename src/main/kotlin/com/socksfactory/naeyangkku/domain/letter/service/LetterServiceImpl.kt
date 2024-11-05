@@ -5,6 +5,8 @@ import com.socksfactory.naeyangkku.domain.letter.domain.model.Letter
 import com.socksfactory.naeyangkku.domain.letter.domain.repository.LetterRepository
 import com.socksfactory.naeyangkku.domain.letter.presentation.dto.CreateLetterRequest
 import com.socksfactory.naeyangkku.domain.user.domain.UserRepository
+import com.socksfactory.naeyangkku.domain.user.exception.UserErrorCode
+import com.socksfactory.naeyangkku.global.exception.CustomException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -17,7 +19,7 @@ class LetterServiceImpl (
     @Transactional
     override fun sendLetter(createLetterRequest: CreateLetterRequest): Letter {
         val ownerId = userRepository.findById(createLetterRequest.ownerId)
-            .orElseThrow { IllegalArgumentException("User not found") }
+            .orElseThrow { CustomException(UserErrorCode.USER_NOT_FOUND) }
 
         val letterEntity = LetterEntity(
             nickname = createLetterRequest.nickname,
