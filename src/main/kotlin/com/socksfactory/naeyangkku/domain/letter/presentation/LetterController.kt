@@ -29,7 +29,7 @@ class LetterController (
         @PathVariable ownerId: Long,
         @PageableDefault(sort = ["id"], direction = Sort.Direction.DESC, size = 5) pageable: Pageable
         ): BaseResponse<Unit> {
-        letterService.getLetters(ownerId, pageable)
+        letterService.getLettersByOwnerId(ownerId, pageable)
         return BaseResponse(
             message = "해당 유저의 편지 리스트 조회 성공"
         )
