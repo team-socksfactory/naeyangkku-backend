@@ -1,4 +1,4 @@
-package com.socksfactory.naeyangkku.domain.letter.presentation.dto
+package com.socksfactory.naeyangkku.domain.letter.presentation.dto.request
 
 data class CreateLetterRequest(
     val nickname: String = "",
