@@ -20,6 +20,6 @@ class LetterEntity (
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
-    val ownerId: UserEntity? = null
+    val ownerId: UserEntity
 ) {
 }
