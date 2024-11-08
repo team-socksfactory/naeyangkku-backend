@@ -1,6 +1,7 @@
 package com.socksfactory.naeyangkku.domain.letter.presentation
 
 import com.socksfactory.naeyangkku.domain.letter.presentation.dto.request.CreateLetterRequest
+import com.socksfactory.naeyangkku.domain.letter.presentation.dto.response.LetterResponse
 import com.socksfactory.naeyangkku.domain.letter.service.LetterService
 import com.socksfactory.naeyangkku.global.common.BaseResponse
 import org.springframework.data.domain.Pageable
@@ -28,10 +29,14 @@ class LetterController (
     fun getLetters(
         @PathVariable ownerId: Long,
         @PageableDefault(sort = ["id"], direction = Sort.Direction.DESC, size = 5) pageable: Pageable
-        ): BaseResponse<Unit> {
-        letterService.getLettersByOwnerId(ownerId, pageable)
+        ): BaseResponse<List<LetterResponse>> {
+
         return BaseResponse(
-            message = "해당 유저의 편지 리스트 조회 성공"
+            message = "해당 유저의 편지 리스트 조회 성공",
+            data = letterService.getLettersByOwnerId(
+                ownerId = ownerId,
+                pageable = pageable
+            )
         )
     }
 
