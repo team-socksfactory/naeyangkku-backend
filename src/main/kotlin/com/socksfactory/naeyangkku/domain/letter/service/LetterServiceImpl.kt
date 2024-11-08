@@ -52,6 +52,6 @@ class LetterServiceImpl (
         id = this.id,
         nickname = this.nickname,
         content = this.content,
-        ownerId = this.ownerId!!
+        ownerId = this.ownerId.id!!
     )
 }
