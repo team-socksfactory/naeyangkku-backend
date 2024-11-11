@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface LetterRepository : JpaRepository<LetterEntity, Long> {
+    fun findById(id: Long, pageable: Pageable): List<LetterEntity>
     fun findAllByOwnerId(ownerId: Long, pageable: Pageable): List<LetterEntity>
 }
