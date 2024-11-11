@@ -18,8 +18,7 @@ class LetterEntity (
     @Column(nullable = false)
     val content: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
-    val ownerId: UserEntity
+    val ownerId: Long? = null
 ) {
 }
