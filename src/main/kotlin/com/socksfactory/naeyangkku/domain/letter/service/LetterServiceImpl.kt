@@ -28,7 +28,7 @@ class LetterServiceImpl (
         val letterEntity = LetterEntity(
             nickname = createLetterRequest.nickname,
             content = createLetterRequest.content,
-            ownerId = ownerId
+            ownerId = ownerId.id!!
         )
 
         val savedEntity = letterRepository.save(letterEntity)
@@ -52,6 +52,6 @@ class LetterServiceImpl (
         id = this.id,
         nickname = this.nickname,
         content = this.content,
-        ownerId = this.ownerId.id!!
+        ownerId = this.ownerId!!
     )
 }

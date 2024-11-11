@@ -8,12 +8,13 @@ import org.springframework.stereotype.Component
 
 @Component
 class LetterMapper : Mapper<Letter, LetterEntity> {
+
     override fun toDomain(entity: LetterEntity): Letter {
         return Letter(
             id = entity.id,
             nickname = entity.nickname,
             content = entity.content,
-            ownerId = entity.ownerId
+            ownerId = entity.ownerId!!
         )
     }
 
@@ -31,7 +32,7 @@ class LetterMapper : Mapper<Letter, LetterEntity> {
             id = letter.id,
             nickname = letter.nickname,
             content = letter.content,
-            ownerId = letter.ownerId.id
+            ownerId = letter.ownerId!!
         )
     }
 
