@@ -48,6 +48,19 @@ class LetterServiceImpl (
         }
     }
 
+    @Transactional
+    override fun getLetter(
+        id: Long,
+        pageable: Pageable
+    ): List<LetterResponse> {
+
+        return letterRepository.findById(id, pageable).map {
+            letterMapper.transferLetterResponse(
+                letterMapper.toDomain(it)
+            )
+        }
+    }
+
     fun LetterEntity.toModel() = Letter(
         id = this.id,
         nickname = this.nickname,
