@@ -40,4 +40,19 @@ class LetterController (
         )
     }
 
+    @GetMapping("/{id}")
+    fun getLetter(
+        @PathVariable id: Long,
+        @PageableDefault(sort = ["id"], direction = Sort.Direction.DESC, size = 5) pageable: Pageable
+    ): BaseResponse<List<LetterResponse>> {
+
+        return BaseResponse(
+            message = "선택한 편지 조회 성공",
+            data = letterService.getLetter(
+                id = id,
+                pageable = pageable
+            )
+        )
+    }
+
 }
