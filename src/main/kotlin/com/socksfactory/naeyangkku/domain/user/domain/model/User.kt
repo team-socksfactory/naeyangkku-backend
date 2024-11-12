@@ -1,5 +1,6 @@
 package com.socksfactory.naeyangkku.domain.user.domain.model
 
+import com.socksfactory.naeyangkku.domain.user.domain.enums.PlatformType
 import com.socksfactory.naeyangkku.domain.user.domain.enums.UserRoles
 
 data class User(
@@ -7,5 +8,6 @@ data class User(
     val email: String = "",
     val name: String = "",
     val password: String = "",
-    val role: UserRoles = UserRoles.ROLE_USER
+    val role: UserRoles = UserRoles.ROLE_USER,
+    val platformType: PlatformType
 )
