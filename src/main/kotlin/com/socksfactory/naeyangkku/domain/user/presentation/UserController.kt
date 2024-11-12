@@ -1,15 +1,15 @@
 package com.socksfactory.naeyangkku.domain.user.presentation
 
-import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.LoginRequest
-import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RefreshRequest
-import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RegisterUserRequest
+import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.*
 import com.socksfactory.naeyangkku.domain.user.service.UserService
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.common.BaseResponse
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import jakarta.validation.Valid
 
 @RestController
 @RequestMapping("/user")
@@ -30,4 +30,8 @@ class UserController(
     fun refreshUser(@RequestBody refreshRequest: RefreshRequest): BaseResponse<String> {
         return userService.refreshToken(refreshRequest)
     }
+
+    @PostMapping("/sign-in/oauth2")
+    fun oAuth2SignIn(@RequestBody @Valid req: OAuth2SignInRequest) =
+        ResponseEntity.ok(userService.oAuth2SignIn(req))
 }
