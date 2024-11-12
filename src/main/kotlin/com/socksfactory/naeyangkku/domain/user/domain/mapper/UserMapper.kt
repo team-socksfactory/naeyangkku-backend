@@ -14,7 +14,8 @@ class UserMapper(
             id = entity.id,
             email = entity.email,
             name = entity.name,
-            password = entity.password
+            password = entity.password,
+            platformType = entity.platformType
         )
     }
 
@@ -30,7 +31,8 @@ class UserMapper(
         return User(
             email = registerUserRequest.email,
             name = registerUserRequest.name,
-            password = password
+            password = password,
+            platformType = registerUserRequest.platformType
         )
     }
 }
