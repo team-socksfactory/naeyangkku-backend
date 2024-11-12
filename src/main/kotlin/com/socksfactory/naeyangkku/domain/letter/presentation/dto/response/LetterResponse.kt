@@ -7,5 +7,6 @@ data class LetterResponse (
     val id: Long? = null,
     val nickname: String? = null,
     val content: String? = null,
+    val iconNm: Long? = null,
     val ownerId: Long? = null
 )
