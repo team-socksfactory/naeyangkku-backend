@@ -17,6 +17,9 @@ class LetterEntity (
     @Column(nullable = false)
     val content: String,
 
+    @Column(nullable = false)
+    val iconNm: Long? = null,
+
     @JoinColumn(name = "owner_id")
     val ownerId: Long? = null
 ) {

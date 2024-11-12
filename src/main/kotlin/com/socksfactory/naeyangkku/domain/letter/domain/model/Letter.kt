@@ -4,5 +4,6 @@ data class Letter(
     val id: Long? = null,
     val nickname: String,
     val content: String,
+    val iconNm: Long,
     val ownerId: Long
 )
