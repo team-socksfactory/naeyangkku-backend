@@ -4,6 +4,7 @@ import com.socksfactory.naeyangkku.domain.user.domain.UserRepository
 import com.socksfactory.naeyangkku.domain.user.domain.entity.UserEntity
 import com.socksfactory.naeyangkku.domain.user.domain.enums.PlatformType
 import com.socksfactory.naeyangkku.domain.user.domain.mapper.UserMapper
+import com.socksfactory.naeyangkku.domain.user.domain.model.User
 import com.socksfactory.naeyangkku.domain.user.exception.UserErrorCode
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.*
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
@@ -93,7 +94,7 @@ class UserServiceImpl(
         )
     }
 
-    private fun googleSignIn(oauthRequest: OAuth2SignInRequest): UserEntity {
+    private fun googleSignIn(oauthRequest: OAuth2SignInRequest): User {
         val token = googleOAuth2Client.getToken(code = oauthRequest.code)
 
         val idToken = googleOAuth2Helper.verifyIdToken(idToken = token.idToken)
@@ -107,6 +108,7 @@ class UserServiceImpl(
                 platformType = oauthRequest.platformType
             )
         )
-        return user;
+        return user.toUser();
     }
+
 }
