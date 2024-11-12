@@ -99,7 +99,7 @@ class UserServiceImpl(
 
         val idToken = googleOAuth2Helper.verifyIdToken(idToken = token.idToken)
         val username = idToken.payload.email
-        val users = userRepository.findByUsername(username)
+        val users = userRepository.findAllByEmail(username)
         val user = users.firstOrNull() ?: userRepository.save(
             UserEntity(
                 email = username,

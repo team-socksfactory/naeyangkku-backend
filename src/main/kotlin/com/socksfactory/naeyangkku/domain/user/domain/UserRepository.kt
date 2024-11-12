@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository
 interface UserRepository : JpaRepository<UserEntity, Long> {
     fun findByEmail(email: String): UserEntity?
     fun existsByEmail(email: String): Boolean
-    fun findByUsername(username: String): List<UserEntity>
+    fun findAllByEmail(email: String): List<UserEntity>
 }
 
-fun UserRepository.getByUsername(username: String): UserEntity =
-    findByUsername(username).firstOrNull() ?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
+fun UserRepository.getByEmail(email: String): UserEntity =
+    findAllByEmail(email).firstOrNull() ?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
