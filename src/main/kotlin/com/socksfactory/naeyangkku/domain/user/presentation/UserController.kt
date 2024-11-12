@@ -4,7 +4,6 @@ import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.*
 import com.socksfactory.naeyangkku.domain.user.service.UserService
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.common.BaseResponse
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -31,7 +30,8 @@ class UserController(
         return userService.refreshToken(refreshRequest)
     }
 
-    @PostMapping("/sign-in/oauth2")
-    fun oAuth2SignIn(@RequestBody @Valid req: OAuth2SignInRequest) =
-        ResponseEntity.ok(userService.oAuth2SignIn(req))
+    @PostMapping("/login/google")
+    fun oAuth2SignIn(@RequestBody @Valid req: OAuth2SignInRequest): BaseResponse<JwtInfo> {
+        return userService.oAuth2SignIn(req)
+    }
 }
