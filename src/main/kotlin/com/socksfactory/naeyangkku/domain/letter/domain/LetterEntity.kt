@@ -1,6 +1,5 @@
 package com.socksfactory.naeyangkku.domain.letter.domain
 
-import com.socksfactory.naeyangkku.domain.user.domain.entity.UserEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
