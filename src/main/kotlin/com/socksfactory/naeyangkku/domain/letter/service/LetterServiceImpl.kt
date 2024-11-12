@@ -28,6 +28,7 @@ class LetterServiceImpl (
         val letterEntity = LetterEntity(
             nickname = createLetterRequest.nickname,
             content = createLetterRequest.content,
+            iconNm = createLetterRequest.iconNm,
             ownerId = ownerId.id!!
         )
 
@@ -65,6 +66,7 @@ class LetterServiceImpl (
         id = this.id,
         nickname = this.nickname,
         content = this.content,
+        iconNm = this.iconNm!!,
         ownerId = this.ownerId!!
     )
 }
