@@ -1,5 +1,6 @@
 package com.socksfactory.naeyangkku.global.auth.jwt
 
+import com.socksfactory.naeyangkku.domain.user.domain.enums.JwtSecretKeyType
 import com.socksfactory.naeyangkku.domain.user.domain.model.User
 import com.socksfactory.naeyangkku.global.auth.jwt.exception.type.JwtErrorType
 import io.jsonwebtoken.ExpiredJwtException
@@ -58,14 +59,16 @@ class JwtUtils(
         return token.removePrefix("Bearer ")
     }
 
-    fun generate(user: User): JwtInfo {
+    fun generate(user: User, type: JwtSecretKeyType = JwtSecretKeyType.DEFAULT): JwtInfo {
         val accessToken = createToken(
             user = user,
-            tokenExpired = jwtProperties.accessExpired
+            tokenExpired = jwtProperties.accessExpired,
+            type = type
         )
         val refreshToken = createToken(
             user = user,
-            tokenExpired = jwtProperties.refreshExpired
+            tokenExpired = jwtProperties.refreshExpired,
+            type = type
         )
 
 
@@ -81,11 +84,19 @@ class JwtUtils(
 
         return "Bearer " + createToken(
             user = user,
-            tokenExpired = jwtProperties.accessExpired
+            tokenExpired = jwtProperties.accessExpired,
+            type = JwtSecretKeyType.DEFAULT
         )
     }
 
-    private fun createToken(user: User, tokenExpired: Long): String {
+    private fun secretKey(type: JwtSecretKeyType) = SecretKeySpec(
+        when (type) {
+            JwtSecretKeyType.DEFAULT -> jwtProperties.secretKey
+        }.toByteArray(StandardCharsets.UTF_8),
+        Jwts.SIG.HS256.key().build().algorithm
+    )
+
+    private fun createToken(user: User, tokenExpired: Long, type: JwtSecretKeyType): String {
         val now: Long = Date().time
         return Jwts.builder()
             .claim("id", user.id)
@@ -93,7 +104,7 @@ class JwtUtils(
             .claim("role", user.role)
             .issuedAt(Date(now))
             .expiration(Date(now + tokenExpired))
-            .signWith(secretKey)
+            .signWith(secretKey(type))
             .compact()
     }
 
