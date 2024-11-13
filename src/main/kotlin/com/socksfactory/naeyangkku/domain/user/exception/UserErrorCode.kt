@@ -14,6 +14,6 @@ enum class UserErrorCode (
     USER_NOT_MATCH(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이메일 또는 비밀번호가 잘못되었습니다."),
     INVAILD_ID_TOKEN(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 않은 토큰입니다."),
     INVAILD_OAUTH_CODE(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 Oauth2 코드 입니다."),
-    INVAILD_PLATFORM_TYPE(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "불가능한 로그인 방식입니다.")
+    INVAILD_PLATFORM_TYPE(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "지원하지 않는 소셜 로그인 방식입니다.")
 
 }
