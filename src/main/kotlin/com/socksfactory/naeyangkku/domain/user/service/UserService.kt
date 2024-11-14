@@ -8,5 +8,5 @@ interface UserService {
     fun registerUser(registerUserRequest: RegisterUserRequest): BaseResponse<Unit>
     fun loginUser(loginRequest: LoginRequest): BaseResponse<JwtInfo>
     fun refreshToken(refreshRequest: RefreshRequest): BaseResponse<String>
-    fun oAuth2SignIn(req: OAuth2SignInRequest): BaseResponse<JwtInfo>
+    fun oAuth2SignIn(oAuth2SignInRequest: OAuth2SignInRequest): BaseResponse<JwtInfo>
 }

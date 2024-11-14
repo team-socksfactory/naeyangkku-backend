@@ -83,9 +83,9 @@ class UserServiceImpl(
     }
 
     @Transactional
-    override fun oAuth2SignIn(oauthRequest: OAuth2SignInRequest): BaseResponse<JwtInfo> {
-        val token = when (oauthRequest.platformType) {
-            PlatformType.GOOGLE -> googleSignIn(oauthRequest)
+    override fun oAuth2SignIn(oAuth2SignInRequest: OAuth2SignInRequest): BaseResponse<JwtInfo> {
+        val token = when (oAuth2SignInRequest.platformType) {
+            PlatformType.GOOGLE -> googleSignIn(oAuth2SignInRequest)
             else -> throw CustomException(UserErrorCode.INVAILD_PLATFORM_TYPE)
         }
         return BaseResponse (
