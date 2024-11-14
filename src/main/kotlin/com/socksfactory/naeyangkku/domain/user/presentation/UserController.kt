@@ -4,11 +4,8 @@ import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.*
 import com.socksfactory.naeyangkku.domain.user.service.UserService
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.common.BaseResponse
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
 import jakarta.validation.Valid
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/user")
@@ -31,7 +28,7 @@ class UserController(
     }
 
     @PostMapping("/login/google")
-    fun oAuth2SignIn(@RequestBody @Valid req: OAuth2SignInRequest): BaseResponse<JwtInfo> {
-        return userService.oAuth2SignIn(req)
+    fun oAuth2SignIn(@RequestBody @Valid oAuth2SignInRequest: OAuth2SignInRequest): BaseResponse<JwtInfo> {
+        return userService.oAuth2SignIn(oAuth2SignInRequest)
     }
 }
