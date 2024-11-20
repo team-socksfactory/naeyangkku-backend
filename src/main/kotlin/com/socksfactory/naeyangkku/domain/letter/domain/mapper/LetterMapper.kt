@@ -15,7 +15,8 @@ class LetterMapper : Mapper<Letter, LetterEntity> {
             nickname = entity.nickname,
             content = entity.content,
             iconNm = entity.iconNm!!,
-            ownerId = entity.ownerId!!
+            ownerId = entity.ownerId!!,
+            ownerNickname = entity.ownerNickname
         )
     }
 
@@ -25,7 +26,8 @@ class LetterMapper : Mapper<Letter, LetterEntity> {
             nickname = domain.nickname,
             content = domain.content,
             iconNm = domain.iconNm,
-            ownerId = domain.ownerId
+            ownerId = domain.ownerId,
+            ownerNickname = domain.ownerNickname
         )
     }
 
@@ -35,7 +37,8 @@ class LetterMapper : Mapper<Letter, LetterEntity> {
             nickname = letter.nickname,
             content = letter.content,
             iconNm = letter.iconNm!!,
-            ownerId = letter.ownerId!!
+            ownerId = letter.ownerId!!,
+            ownerNickname = letter.ownerNickname
         )
     }
 
