@@ -38,6 +38,10 @@ class SecurityConfig (
                 it.disable()
             }
 
+            .securityContext {
+                it.requireExplicitSave(true)
+            }
+
             .sessionManagement { session ->
                 session.sessionCreationPolicy(
                     SessionCreationPolicy.STATELESS
@@ -47,6 +51,7 @@ class SecurityConfig (
             .authorizeHttpRequests {
                 it
                     .requestMatchers("/user/**").permitAll()
+                    .requestMatchers("/letter/link/**").permitAll()
                     .anyRequest().authenticated()
             }
 
