@@ -29,7 +29,8 @@ class LetterServiceImpl (
             nickname = createLetterRequest.nickname,
             content = createLetterRequest.content,
             iconNm = createLetterRequest.iconNm,
-            ownerId = ownerId.id!!
+            ownerId = ownerId.id!!,
+            ownerNickname = ownerId.nickname
         )
 
         val savedEntity = letterRepository.save(letterEntity)
@@ -51,11 +52,11 @@ class LetterServiceImpl (
 
     @Transactional
     override fun getTreeForGuest(
-        nickname: String,
+        ownerNickname: String,
         pageable: Pageable
     ): List<LetterResponse> {
 
-        return letterRepository.findAllByNickname(nickname, pageable).map {
+        return letterRepository.findAllByOwnerNickname(ownerNickname, pageable).map {
             letterMapper.transferLetterResponse(
                 letterMapper.toDomain(it)
             )
@@ -80,6 +81,7 @@ class LetterServiceImpl (
         nickname = this.nickname,
         content = this.content,
         iconNm = this.iconNm!!,
-        ownerId = this.ownerId!!
+        ownerId = this.ownerId!!,
+        ownerNickname = this.nickname
     )
 }
