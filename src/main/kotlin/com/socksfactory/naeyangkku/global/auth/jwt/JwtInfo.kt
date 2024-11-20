@@ -4,7 +4,7 @@ data class JwtInfo (
 
     val id: Long,
 
-    val name: String,
+    val nickname: String,
 
     val accessToken: String,
 

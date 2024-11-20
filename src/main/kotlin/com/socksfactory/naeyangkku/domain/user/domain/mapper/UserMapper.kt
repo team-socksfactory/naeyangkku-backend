@@ -13,7 +13,7 @@ class UserMapper(
         return User(
             id = entity.id,
             email = entity.email,
-            name = entity.name,
+            nickname = entity.nickname,
             password = entity.password
         )
     }
@@ -21,7 +21,7 @@ class UserMapper(
     override fun toEntity(domain: User): UserEntity {
         return UserEntity(
             email = domain.email,
-            name = domain.name,
+            nickname = domain.nickname,
             password = domain.password
         )
     }
@@ -29,7 +29,7 @@ class UserMapper(
     fun toDomain(registerUserRequest: RegisterUserRequest, password: String): User {
         return User(
             email = registerUserRequest.email,
-            name = registerUserRequest.name,
+            nickname = registerUserRequest.nickname,
             password = password
         )
     }
