@@ -51,7 +51,7 @@ class SecurityConfig (
             .authorizeHttpRequests {
                 it
                     .requestMatchers("/user/**").permitAll()
-                    .requestMatchers("/letter/link/**").permitAll()
+                    .requestMatchers("/share/**").permitAll()
                     .anyRequest().authenticated()
             }
 
