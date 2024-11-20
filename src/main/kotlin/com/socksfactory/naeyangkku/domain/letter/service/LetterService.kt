@@ -8,5 +8,6 @@ import org.springframework.data.domain.Pageable
 interface LetterService {
     fun sendLetter(createLetterRequest: CreateLetterRequest): Letter
     fun getLettersByOwnerId(ownerId: Long, pageable: Pageable): List<LetterResponse>
+    fun getTreeForGuest(nickname: String, pageable: Pageable): List<LetterResponse>
     fun getLetter(id: Long, pageable: Pageable): List<LetterResponse>
 }

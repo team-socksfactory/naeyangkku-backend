@@ -50,6 +50,19 @@ class LetterServiceImpl (
     }
 
     @Transactional
+    override fun getTreeForGuest(
+        nickname: String,
+        pageable: Pageable
+    ): List<LetterResponse> {
+
+        return letterRepository.findAllByNickname(nickname, pageable).map {
+            letterMapper.transferLetterResponse(
+                letterMapper.toDomain(it)
+            )
+        }
+    }
+
+    @Transactional
     override fun getLetter(
         id: Long,
         pageable: Pageable
