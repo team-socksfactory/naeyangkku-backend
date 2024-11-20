@@ -40,6 +40,21 @@ class LetterController (
         )
     }
 
+    @GetMapping("/{nickname}")
+    fun getTreeForGuest(
+        @PathVariable nickname: String,
+        @PageableDefault(sort = ["id"], direction = Sort.Direction.DESC, size = 5) pageable: Pageable
+    ): BaseResponse<List<LetterResponse>> {
+
+        return BaseResponse(
+            message = "공유용 링크 조회 성공",
+            data = letterService.getTreeForGuest(
+                nickname = nickname,
+                pageable = pageable
+            )
+        )
+    }
+
     @GetMapping("/{id}")
     fun getLetter(
         @PathVariable id: Long,
