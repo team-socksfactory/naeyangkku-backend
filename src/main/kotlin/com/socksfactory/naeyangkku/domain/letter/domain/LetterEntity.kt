@@ -20,7 +20,10 @@ class LetterEntity (
     @Column(nullable = false)
     val iconNm: Long? = null,
 
-    @JoinColumn(name = "owner_id")
-    val ownerId: Long? = null
+    @JoinColumn(nullable = false)
+    val ownerId: Long? = null,
+
+    @JoinColumn(nullable = false)
+    val ownerNickname: String
 ) {
 }

@@ -5,5 +5,6 @@ data class Letter(
     val nickname: String,
     val content: String,
     val iconNm: Long,
-    val ownerId: Long
+    val ownerId: Long,
+    val ownerNickname: String
 )

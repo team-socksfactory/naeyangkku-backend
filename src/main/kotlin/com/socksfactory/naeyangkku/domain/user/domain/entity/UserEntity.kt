@@ -18,7 +18,7 @@ class UserEntity (
     val email: String,
 
     @Column(nullable = false)
-    val name: String,
+    val nickname: String,
 
     @Column(nullable = false)
     val password: String,

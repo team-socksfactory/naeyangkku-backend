@@ -72,7 +72,7 @@ class JwtUtils(
         )
 
 
-        return JwtInfo("Bearer $accessToken", "Bearer $refreshToken")
+        return JwtInfo(id = user.id!!, nickname = user.nickname, "Bearer $accessToken", "Bearer $refreshToken")
     }
 
     fun getAuthentication(token: String): Authentication {
