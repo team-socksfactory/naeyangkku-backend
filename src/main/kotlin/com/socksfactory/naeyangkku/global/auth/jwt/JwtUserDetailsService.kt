@@ -19,7 +19,7 @@ class JwtUserDetailsService (
     override fun loadUserByUsername(email: String): UserDetails {
         return JwtUserDetails (
             user = userMapper.toDomain(
-               entity = userRepository.findByEmail(email)?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
+                entity = userRepository.findByEmail(email)?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
             )
         )
     }
