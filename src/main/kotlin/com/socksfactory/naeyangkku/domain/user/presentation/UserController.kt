@@ -32,8 +32,8 @@ class UserController(
         return userService.refreshToken(refreshRequest)
     }
 
-    @PostMapping("/nickname")
-    fun getNicknameByUserId(@RequestBody userIdRequest: UserIdReqeust): BaseResponse<String> {
-        return userService.getNicknameByUserId(userIdRequest.userId)
+    @PostMapping("/id")
+    fun getNicknameByUserId(@RequestBody userIdRequest: UserIdReqeust): BaseResponse<Long> {
+        return userService.getUserIdByNickname(userIdRequest.nickname)
     }
 }
