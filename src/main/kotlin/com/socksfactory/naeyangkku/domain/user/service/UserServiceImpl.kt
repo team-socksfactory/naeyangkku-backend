@@ -27,7 +27,8 @@ class UserServiceImpl(
     @Transactional
     override fun registerUser(registerUserRequest: RegisterUserRequest): BaseResponse<Unit> {
 
-        if(userRepository.existsByEmail(registerUserRequest.email)) throw CustomException(UserErrorCode.USER_ALREADY_EXIST)
+        if(userRepository.existsByEmail(registerUserRequest.email)) throw CustomException(UserErrorCode.USER_EMAIL_ALREADY_EXIST)
+        if(userRepository.existsByNickname(registerUserRequest.nickname)) throw CustomException(UserErrorCode.USER_NICKNAME_ALREADY_EXIST)
 
         userRepository.save(
             userMapper.toEntity(
