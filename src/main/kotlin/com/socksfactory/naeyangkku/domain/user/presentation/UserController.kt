@@ -3,6 +3,7 @@ package com.socksfactory.naeyangkku.domain.user.presentation
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.LoginRequest
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RefreshRequest
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RegisterUserRequest
+import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.UserIdReqeust
 import com.socksfactory.naeyangkku.domain.user.service.UserService
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.common.BaseResponse
@@ -29,5 +30,10 @@ class UserController(
     @PostMapping("/refresh")
     fun refreshUser(@RequestBody refreshRequest: RefreshRequest): BaseResponse<String> {
         return userService.refreshToken(refreshRequest)
+    }
+
+    @PostMapping("/nickname")
+    fun getNicknameByUserId(@RequestBody userIdRequest: UserIdReqeust): BaseResponse<String> {
+        return userService.getNicknameByUserId(userIdRequest.userId)
     }
 }
