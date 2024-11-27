@@ -27,7 +27,8 @@ class UserServiceImpl(
     @Transactional
     override fun registerUser(registerUserRequest: RegisterUserRequest): BaseResponse<Unit> {
 
-        if(userRepository.existsByEmail(registerUserRequest.email)) throw CustomException(UserErrorCode.USER_ALREADY_EXIST)
+        if(userRepository.existsByEmail(registerUserRequest.email)) throw CustomException(UserErrorCode.USER_EMAIL_ALREADY_EXIST)
+        if(userRepository.existsByNickname(registerUserRequest.nickname)) throw CustomException(UserErrorCode.USER_NICKNAME_ALREADY_EXIST)
 
         userRepository.save(
             userMapper.toEntity(
@@ -76,4 +77,16 @@ class UserServiceImpl(
             )
         )
     }
+
+    @Transactional(readOnly = true)
+    override fun getUserIdByNickname(nickname: String): BaseResponse<Long> {
+        val user = userRepository.findByNickname(nickname)
+            ?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
+
+        return BaseResponse(
+            message = "유저 ID 조회 성공",
+            data = user.id
+        )
+    }
+
 }
