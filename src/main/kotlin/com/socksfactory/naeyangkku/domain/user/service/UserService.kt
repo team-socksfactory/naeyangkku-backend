@@ -11,4 +11,5 @@ interface UserService {
     fun loginUser(loginRequest: LoginRequest): BaseResponse<JwtInfo>
     fun refreshToken(refreshRequest: RefreshRequest): BaseResponse<String>
     fun getNicknameByUserId(userId: Long): BaseResponse<String>
+    fun getUserIdByNickname(nickname: String): BaseResponse<Long>
 }

@@ -90,4 +90,15 @@ class UserServiceImpl(
         )
     }
 
+    @Transactional(readOnly = true)
+    override fun getUserIdByNickname(nickname: String): BaseResponse<Long> {
+        val user = userRepository.findByNickname(nickname)
+            ?: throw CustomException(UserErrorCode.USER_NOT_FOUND)
+
+        return BaseResponse(
+            message = "유저 ID 조회 성공",
+            data = user.id
+        )
+    }
+
 }
