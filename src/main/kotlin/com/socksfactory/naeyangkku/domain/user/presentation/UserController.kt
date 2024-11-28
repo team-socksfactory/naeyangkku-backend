@@ -36,4 +36,10 @@ class UserController(
     fun getNicknameByUserId(@RequestParam userId: Long): BaseResponse<String> {
         return userService.getNicknameByUserId(userId)
     }
+
+    @PostMapping("/id")
+    fun getUserIdByNickname(@RequestParam nickname: String): BaseResponse<Long> {
+        return userService.getUserIdByNickname(nickname)
+    }
+
 }
