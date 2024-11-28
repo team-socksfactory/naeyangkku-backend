@@ -3,13 +3,13 @@ package com.socksfactory.naeyangkku.domain.user.presentation
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.LoginRequest
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RefreshRequest
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RegisterUserRequest
-import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.UserIdReqeust
 import com.socksfactory.naeyangkku.domain.user.service.UserService
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.common.BaseResponse
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -33,7 +33,7 @@ class UserController(
     }
 
     @PostMapping("/nickname")
-    fun getNicknameByUserId(@RequestBody userIdRequest: UserIdReqeust): BaseResponse<String> {
-        return userService.getNicknameByUserId(userIdRequest.userId)
+    fun getNicknameByUserId(@RequestParam userId: Long): BaseResponse<String> {
+        return userService.getNicknameByUserId(userId)
     }
 }
