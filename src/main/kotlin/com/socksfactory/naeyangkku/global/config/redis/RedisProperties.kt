@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component
 
 @Component
 data class RedisProperties(
-    @Value("\${spring.redis.host}") val host: String,
-    @Value("\${spring.redis.port}") val port: Int
+    @Value("\${spring.data.redis.host}") val host: String,
+    @Value("\${spring.data.redis.port}") val port: Int
 )
