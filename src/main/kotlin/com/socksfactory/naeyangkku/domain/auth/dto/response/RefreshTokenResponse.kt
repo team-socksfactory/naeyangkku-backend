@@ -1,4 +1,4 @@
-package com.project.oauthtemplate.domain.auth.dto.response
+package com.socksfactory.naeyangkku.domain.auth.dto.response
 
 import com.fasterxml.jackson.annotation.JsonInclude
 

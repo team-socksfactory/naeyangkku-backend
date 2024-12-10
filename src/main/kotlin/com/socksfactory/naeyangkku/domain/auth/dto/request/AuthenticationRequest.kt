@@ -1,4 +1,4 @@
-package com.project.oauthtemplate.domain.auth.dto.request
+package com.socksfactory.naeyangkku.domain.auth.dto.request
 
 import jakarta.validation.constraints.NotBlank
 

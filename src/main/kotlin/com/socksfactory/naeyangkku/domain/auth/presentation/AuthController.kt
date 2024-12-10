@@ -1,10 +1,10 @@
-package com.project.oauthtemplate.domain.auth.api
+package com.socksfactory.naeyangkku.domain.auth.presentation
 
-import com.project.oauthtemplate.domain.auth.dto.request.AuthenticationRequest
-import com.project.oauthtemplate.domain.auth.dto.request.RefreshTokenRequest
-import com.project.oauthtemplate.domain.auth.dto.response.JsonWebTokenResponse
-import com.project.oauthtemplate.domain.auth.dto.response.RefreshTokenResponse
-import com.project.oauthtemplate.domain.auth.service.OAuth2UserService
+import com.socksfactory.naeyangkku.domain.auth.dto.request.AuthenticationRequest
+import com.socksfactory.naeyangkku.domain.auth.dto.request.RefreshTokenRequest
+import com.socksfactory.naeyangkku.domain.auth.dto.response.JsonWebTokenResponse
+import com.socksfactory.naeyangkku.domain.auth.dto.response.RefreshTokenResponse
+import com.socksfactory.naeyangkku.domain.auth.service.OAuth2UserService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
