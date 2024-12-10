@@ -1,8 +1,5 @@
 package com.socksfactory.naeyangkku.domain.auth.service
 
-import com.project.oauthtemplate.global.infra.google.dto.OAuth2Attribute
-import com.project.oauthtemplate.global.infra.google.service.GoogleService
-import com.project.oauthtemplate.global.security.jwt.exception.TokenExpiredException
 import com.socksfactory.naeyangkku.domain.auth.dto.request.AuthenticationRequest
 import com.socksfactory.naeyangkku.domain.auth.dto.request.RefreshTokenRequest
 import com.socksfactory.naeyangkku.domain.auth.dto.response.JsonWebTokenResponse
@@ -11,7 +8,10 @@ import com.socksfactory.naeyangkku.domain.user.domain.UserRepository
 import com.socksfactory.naeyangkku.domain.user.domain.model.User
 import com.socksfactory.naeyangkku.domain.user.exception.UserErrorCode
 import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorType
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.exception.TokenExpiredException
 import com.socksfactory.naeyangkku.global.exception.CustomException
+import com.socksfactory.naeyangkku.global.infra.google.dto.OAuth2Attribute
+import com.socksfactory.naeyangkku.global.infra.google.service.GoogleService
 import com.socksfactory.naeyangkku.global.security.jwt.JwtExtract
 import com.socksfactory.naeyangkku.global.security.jwt.JwtProvider
 import io.jsonwebtoken.lang.Strings
