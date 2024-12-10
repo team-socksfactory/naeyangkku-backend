@@ -1,7 +1,7 @@
-package com.project.oauthtemplate.global.security.jwt.exception
+package com.socksfactory.naeyangkku.global.auth.jwt.exception.exception
 
-import com.project.oauthtemplate.global.exception.BusinessException
 import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorCode
+import com.socksfactory.naeyangkku.global.exception.BusinessException
 
 object TokenNotSupportException : BusinessException(JwtErrorCode.JWT_TOKEN_UNSUPPORTED_ERROR) {
 
