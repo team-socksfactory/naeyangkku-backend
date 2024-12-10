@@ -51,7 +51,11 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 	implementation("org.springframework.boot:spring-boot-starter-validation")
-	implementation("com.google.api-client:google-api-client:1.33.0")
+
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+	implementation ("org.apache.httpcomponents.client5:httpclient5:5.2.1")
+
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
 kotlin {
