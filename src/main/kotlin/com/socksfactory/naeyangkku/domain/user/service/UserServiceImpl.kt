@@ -8,8 +8,8 @@ import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RefreshR
 import com.socksfactory.naeyangkku.domain.user.presentation.dto.request.RegisterUserRequest
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtInfo
 import com.socksfactory.naeyangkku.global.auth.jwt.JwtUtils
-import com.socksfactory.naeyangkku.global.auth.jwt.exception.JwtErrorCode
-import com.socksfactory.naeyangkku.global.auth.jwt.exception.type.JwtErrorType
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorCode
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorType
 import com.socksfactory.naeyangkku.global.common.BaseResponse
 import com.socksfactory.naeyangkku.global.exception.CustomException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
