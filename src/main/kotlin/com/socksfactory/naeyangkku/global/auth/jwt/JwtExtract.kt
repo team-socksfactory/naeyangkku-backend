@@ -1,4 +1,4 @@
-package com.socksfactory.naeyangkku.global.security.jwt
+package com.socksfactory.naeyangkku.global.auth.jwt
 
 import com.socksfactory.naeyangkku.domain.user.domain.UserRepository
 import com.socksfactory.naeyangkku.domain.user.domain.model.User
@@ -6,7 +6,6 @@ import com.socksfactory.naeyangkku.domain.user.exception.UserErrorCode
 import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorType
 import com.socksfactory.naeyangkku.global.exception.CustomException
 import com.socksfactory.naeyangkku.global.security.auth.principal.CustomUserDetails
-import com.socksfactory.naeyangkku.global.security.jwt.config.JwtProperties
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.MalformedJwtException

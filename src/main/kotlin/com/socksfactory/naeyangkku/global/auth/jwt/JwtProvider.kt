@@ -1,7 +1,6 @@
-package com.socksfactory.naeyangkku.global.security.jwt
+package com.socksfactory.naeyangkku.global.auth.jwt
 
 import com.socksfactory.naeyangkku.domain.user.domain.enums.UserRoles
-import com.socksfactory.naeyangkku.global.security.jwt.config.JwtProperties
 import io.jsonwebtoken.Jwts
 import org.springframework.stereotype.Component
 import java.nio.charset.StandardCharsets
@@ -22,7 +21,7 @@ class JwtProvider (private val jwtProperties: JwtProperties) {
             .claim("email",email)
             .claim("authority", roles)
             .issuedAt(Date(System.currentTimeMillis()))
-            .expiration(Date(System.currentTimeMillis() + jwtProperties.expiration))
+            .expiration(Date(System.currentTimeMillis() + jwtProperties.accessExpired))
             .signWith(secretKey)
             .compact()
     }
@@ -32,7 +31,7 @@ class JwtProvider (private val jwtProperties: JwtProperties) {
             .claim("email",email)
             .claim("authority", roles)
             .issuedAt(Date(System.currentTimeMillis()))
-            .expiration(Date(System.currentTimeMillis() + jwtProperties.refreshExpiration))
+            .expiration(Date(System.currentTimeMillis() + jwtProperties.refreshExpired))
             .signWith(secretKey)
             .compact()
     }

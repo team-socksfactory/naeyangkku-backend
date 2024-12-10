@@ -12,8 +12,8 @@ import com.socksfactory.naeyangkku.global.auth.jwt.exception.exception.TokenExpi
 import com.socksfactory.naeyangkku.global.exception.CustomException
 import com.socksfactory.naeyangkku.global.infra.google.dto.OAuth2Attribute
 import com.socksfactory.naeyangkku.global.infra.google.service.GoogleService
-import com.socksfactory.naeyangkku.global.security.jwt.JwtExtract
-import com.socksfactory.naeyangkku.global.security.jwt.JwtProvider
+import com.socksfactory.naeyangkku.global.auth.jwt.JwtExtract
+import com.socksfactory.naeyangkku.global.auth.jwt.JwtProvider
 import io.jsonwebtoken.lang.Strings
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
