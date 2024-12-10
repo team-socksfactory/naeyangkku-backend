@@ -52,6 +52,7 @@ class SecurityConfig (
                 it
                     .requestMatchers("/user/**").permitAll()
                     .requestMatchers("/share/**").permitAll()
+                    .requestMatchers("/auth/**").permitAll()
                     .anyRequest().authenticated()
             }
 
