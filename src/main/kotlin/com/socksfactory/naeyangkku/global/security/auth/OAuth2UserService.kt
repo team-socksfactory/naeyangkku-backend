@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User
 import org.springframework.security.oauth2.core.user.OAuth2User
 import org.springframework.stereotype.Service
 
-@Service
+@Service("globalOAuth2UserService")
 class OAuth2UserService : DefaultOAuth2UserService() {
     @Throws(OAuth2AuthenticationException::class)
     override fun loadUser(userRequest: OAuth2UserRequest): OAuth2User {

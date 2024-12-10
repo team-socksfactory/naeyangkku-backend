@@ -18,8 +18,8 @@ import io.jsonwebtoken.lang.Strings
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
-@Service
-class OAuth2UserService(
+@Service("domainOAuth2UserService")
+class OAuth2UserServiceService(
     private val userRepository: UserRepository,
     private val encoder: PasswordEncoder,
     private val googleService: GoogleService,

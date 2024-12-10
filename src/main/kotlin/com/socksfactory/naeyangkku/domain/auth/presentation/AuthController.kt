@@ -4,7 +4,7 @@ import com.socksfactory.naeyangkku.domain.auth.dto.request.AuthenticationRequest
 import com.socksfactory.naeyangkku.domain.auth.dto.request.RefreshTokenRequest
 import com.socksfactory.naeyangkku.domain.auth.dto.response.JsonWebTokenResponse
 import com.socksfactory.naeyangkku.domain.auth.dto.response.RefreshTokenResponse
-import com.socksfactory.naeyangkku.domain.auth.service.OAuth2UserService
+import com.socksfactory.naeyangkku.domain.auth.service.OAuth2UserServiceService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/auth")
 class AuthController(
-    private val oAuth2UserService: OAuth2UserService
+    private val oAuth2UserService: OAuth2UserServiceService
 ) {
 
     @PostMapping("")
