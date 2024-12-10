@@ -1,4 +1,4 @@
-package com.socksfactory.naeyangkku.global.auth.jwt.exception
+package com.socksfactory.naeyangkku.global.auth.jwt.exception.error
 
 import com.socksfactory.naeyangkku.global.exception.CustomErrorCode
 import org.springframework.http.HttpStatus
@@ -16,5 +16,5 @@ enum class JwtErrorCode (
     JWT_TOKEN_ILL_EXCEPTION(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "JWT 처리 과정에서 오류가 발생했습니다."),
     JWT_UNKNOWN_EXCEPTION(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "JWT 처리과정에서 알수없는 오류가 발생했습니다."),
     JWT_EMPTY_EXCEPTION(HttpStatus.FORBIDDEN, "FORBIDDEN", "토큰을 넣어주세요."),
-
+    JWT_ERROR(HttpStatus.BAD_REQUEST, "BAD_REQUEST","잘못된 토큰입니다.")
 }
