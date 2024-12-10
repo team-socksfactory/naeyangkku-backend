@@ -1,4 +1,4 @@
-package com.project.oauthtemplate.global.exception.error
+package com.socksfactory.naeyangkku.global.exception.error
 
 import org.springframework.http.HttpStatus
 
