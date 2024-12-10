@@ -49,6 +49,13 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+	implementation ("org.apache.httpcomponents.client5:httpclient5:5.2.1")
+
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
 kotlin {

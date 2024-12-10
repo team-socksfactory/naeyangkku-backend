@@ -1,8 +1,8 @@
 package com.socksfactory.naeyangkku.global.auth.jwt
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.socksfactory.naeyangkku.global.auth.jwt.exception.JwtErrorCode
-import com.socksfactory.naeyangkku.global.auth.jwt.exception.type.JwtErrorType
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorCode
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorType
 import com.socksfactory.naeyangkku.global.common.BaseResponse
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
@@ -52,6 +52,10 @@ class JwtAuthenticationFilter(
                 )
 
                 JwtErrorType.UNKNOWN_EXCEPTION -> setErrorResponse(response, JwtErrorCode.JWT_UNKNOWN_EXCEPTION)
+                JwtErrorType.JWT_UNKNOWN_EXCEPTION -> setErrorResponse(response, JwtErrorCode.JWT_UNKNOWN_EXCEPTION)
+                JwtErrorType.JWT_EMPTY_EXCEPTION -> setErrorResponse(response, JwtErrorCode.JWT_EMPTY_EXCEPTION)
+                JwtErrorType.JWT_TOKEN_ERROR -> setErrorResponse(response, JwtErrorCode.JWT_TOKEN_ERROR)
+                JwtErrorType.JWT_ERROR -> setErrorResponse(response, JwtErrorCode.JWT_TOKEN_ERROR)
             }
         }
     }

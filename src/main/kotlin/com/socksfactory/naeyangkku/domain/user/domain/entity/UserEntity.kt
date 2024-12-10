@@ -19,7 +19,7 @@ class UserEntity (
     @Column(nullable = false)
     val password: String,
 
-    @Column(nullable = false)
-    val role: UserRoles = UserRoles.ROLE_USER
+    @Enumerated(EnumType.STRING)
+    val role: UserRoles
 
 )

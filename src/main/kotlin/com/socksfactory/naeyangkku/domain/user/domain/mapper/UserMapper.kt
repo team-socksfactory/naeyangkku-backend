@@ -22,7 +22,8 @@ class UserMapper(
         return UserEntity(
             email = domain.email,
             nickname = domain.nickname,
-            password = domain.password
+            password = domain.password,
+            role = domain.role
         )
     }
 

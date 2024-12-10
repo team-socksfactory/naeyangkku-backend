@@ -52,6 +52,7 @@ class SecurityConfig (
                 it
                     .requestMatchers("/user/**").permitAll()
                     .requestMatchers("/share/**").permitAll()
+                    .requestMatchers("/auth/**").permitAll()
                     .anyRequest().authenticated()
             }
 
@@ -59,6 +60,7 @@ class SecurityConfig (
 
             .exceptionHandling {
                 it.authenticationEntryPoint(HttpStatusEntryPoint(HttpStatus.NOT_FOUND))
+                it.authenticationEntryPoint(HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
             }
 
             .build()

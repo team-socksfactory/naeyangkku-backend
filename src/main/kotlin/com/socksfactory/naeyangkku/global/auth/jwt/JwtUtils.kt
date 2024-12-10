@@ -1,7 +1,7 @@
 package com.socksfactory.naeyangkku.global.auth.jwt
 
 import com.socksfactory.naeyangkku.domain.user.domain.model.User
-import com.socksfactory.naeyangkku.global.auth.jwt.exception.type.JwtErrorType
+import com.socksfactory.naeyangkku.global.auth.jwt.exception.error.JwtErrorType
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.MalformedJwtException
